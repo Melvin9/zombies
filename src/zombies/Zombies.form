@@ -42,7 +42,7 @@
     <Component class="javax.swing.JLabel" name="g">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Melvin Mathew\Documents\NetBeansProjects\Zombies\src\zombies\gun.png"/>
+          <Image iconType="3" name="/zombies/gun.png"/>
         </Property>
       </Properties>
       <Constraints>
@@ -54,7 +54,7 @@
     <Component class="javax.swing.JLabel" name="bullets">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Melvin Mathew\Documents\NetBeansProjects\Zombies\src\zombies\b1.png"/>
+          <Image iconType="3" name="/zombies/b1.png"/>
         </Property>
       </Properties>
       <Constraints>
@@ -66,7 +66,7 @@
     <Component class="javax.swing.JLabel" name="bullets1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Melvin Mathew\Documents\NetBeansProjects\Zombies\src\zombies\b1.png"/>
+          <Image iconType="3" name="/zombies/b1.png"/>
         </Property>
       </Properties>
       <Constraints>
@@ -78,31 +78,7 @@
     <Component class="javax.swing.JLabel" name="bullets4">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Melvin Mathew\Documents\NetBeansProjects\Zombies\src\zombies\b1.png"/>
-        </Property>
-      </Properties>
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="20" y="0" width="40" height="56"/>
-        </Constraint>
-      </Constraints>
-    </Component>
-    <Component class="javax.swing.JLabel" name="bullets2">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Melvin Mathew\Documents\NetBeansProjects\Zombies\src\zombies\b1.png"/>
-        </Property>
-      </Properties>
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="40" y="0" width="40" height="56"/>
-        </Constraint>
-      </Constraints>
-    </Component>
-    <Component class="javax.swing.JLabel" name="bullets3">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Melvin Mathew\Documents\NetBeansProjects\Zombies\src\zombies\b1.png"/>
+          <Image iconType="3" name="/zombies/b1.png"/>
         </Property>
       </Properties>
       <Constraints>
@@ -111,10 +87,34 @@
         </Constraint>
       </Constraints>
     </Component>
+    <Component class="javax.swing.JLabel" name="bullets2">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/zombies/b1.png"/>
+        </Property>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="20" y="0" width="40" height="56"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="bullets3">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/zombies/b1.png"/>
+        </Property>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="40" y="0" width="40" height="56"/>
+        </Constraint>
+      </Constraints>
+    </Component>
     <Component class="javax.swing.JLabel" name="spark">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Melvin Mathew\Documents\NetBeansProjects\Zombies\src\zombies\spark.png"/>
+          <Image iconType="3" name="/zombies/spark.png"/>
         </Property>
       </Properties>
       <Constraints>
@@ -183,7 +183,7 @@
           <Font name="Tahoma" size="36" style="0"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Melvin Mathew\Documents\NetBeansProjects\Zombies\src\zombies\Grave.png"/>
+          <Image iconType="3" name="/zombies/Grave.png"/>
         </Property>
       </Properties>
       <Constraints>
@@ -211,7 +211,7 @@
     <Component class="javax.swing.JLabel" name="l1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Melvin Mathew\Documents\NetBeansProjects\Zombies\src\zombies\heart.png"/>
+          <Image iconType="3" name="/zombies/heart.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="LIFE"/>
       </Properties>
@@ -224,7 +224,7 @@
     <Component class="javax.swing.JLabel" name="bg">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Melvin Mathew\Documents\NetBeansProjects\Zombies\src\zombies\on-a-scary-scary-night-1600x1200.jpg"/>
+          <Image iconType="3" name="/zombies/on-a-scary-scary-night-1600x1200.jpg"/>
         </Property>
       </Properties>
       <Constraints>

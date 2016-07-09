@@ -23,7 +23,7 @@ import sun.audio.AudioStream;
  */
 public class Zombies extends javax.swing.JFrame {
 
-    int b = 1, sc = 1, c = 0, bullet = 0, d = 0, l = 10, n = 0, temp;
+    int b = 1, sc = 1, c = 0, bullet = 5, d = 0, l = 10, n = 3, temp, b1 = 5, b2 = 5, b3 = 5;
     boolean click = false;
     boolean click1 = false;
     AudioStream BGMGlobal;
@@ -108,31 +108,31 @@ public class Zombies extends javax.swing.JFrame {
         });
         getContentPane().setLayout(null);
 
-        g.setIcon(new javax.swing.ImageIcon("C:\\Users\\Melvin Mathew\\Documents\\NetBeansProjects\\Zombies\\src\\zombies\\gun.png")); // NOI18N
+        g.setIcon(new javax.swing.ImageIcon(getClass().getResource("/zombies/gun.png"))); // NOI18N
         getContentPane().add(g);
         g.setBounds(420, 370, 290, 180);
 
-        bullets.setIcon(new javax.swing.ImageIcon("C:\\Users\\Melvin Mathew\\Documents\\NetBeansProjects\\Zombies\\src\\zombies\\b1.png")); // NOI18N
+        bullets.setIcon(new javax.swing.ImageIcon(getClass().getResource("/zombies/b1.png"))); // NOI18N
         getContentPane().add(bullets);
         bullets.setBounds(-20, 0, 35, 56);
 
-        bullets1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Melvin Mathew\\Documents\\NetBeansProjects\\Zombies\\src\\zombies\\b1.png")); // NOI18N
+        bullets1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/zombies/b1.png"))); // NOI18N
         getContentPane().add(bullets1);
         bullets1.setBounds(0, 0, 40, 56);
 
-        bullets4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Melvin Mathew\\Documents\\NetBeansProjects\\Zombies\\src\\zombies\\b1.png")); // NOI18N
+        bullets4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/zombies/b1.png"))); // NOI18N
         getContentPane().add(bullets4);
-        bullets4.setBounds(20, 0, 40, 56);
+        bullets4.setBounds(60, 0, 40, 56);
 
-        bullets2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Melvin Mathew\\Documents\\NetBeansProjects\\Zombies\\src\\zombies\\b1.png")); // NOI18N
+        bullets2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/zombies/b1.png"))); // NOI18N
         getContentPane().add(bullets2);
-        bullets2.setBounds(40, 0, 40, 56);
+        bullets2.setBounds(20, 0, 40, 56);
 
-        bullets3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Melvin Mathew\\Documents\\NetBeansProjects\\Zombies\\src\\zombies\\b1.png")); // NOI18N
+        bullets3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/zombies/b1.png"))); // NOI18N
         getContentPane().add(bullets3);
-        bullets3.setBounds(60, 0, 40, 56);
+        bullets3.setBounds(40, 0, 40, 56);
 
-        spark.setIcon(new javax.swing.ImageIcon("C:\\Users\\Melvin Mathew\\Documents\\NetBeansProjects\\Zombies\\src\\zombies\\spark.png")); // NOI18N
+        spark.setIcon(new javax.swing.ImageIcon(getClass().getResource("/zombies/spark.png"))); // NOI18N
         getContentPane().add(spark);
         spark.setBounds(460, 310, 110, 130);
         getContentPane().add(t1);
@@ -153,7 +153,7 @@ public class Zombies extends javax.swing.JFrame {
         score2.setBounds(210, 10, 40, 30);
 
         s1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        s1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Melvin Mathew\\Documents\\NetBeansProjects\\Zombies\\src\\zombies\\Grave.png")); // NOI18N
+        s1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/zombies/Grave.png"))); // NOI18N
         getContentPane().add(s1);
         s1.setBounds(170, 0, 40, 50);
 
@@ -163,12 +163,12 @@ public class Zombies extends javax.swing.JFrame {
         getContentPane().add(life);
         life.setBounds(140, 10, 30, 30);
 
-        l1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Melvin Mathew\\Documents\\NetBeansProjects\\Zombies\\src\\zombies\\heart.png")); // NOI18N
+        l1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/zombies/heart.png"))); // NOI18N
         l1.setText("LIFE");
         getContentPane().add(l1);
         l1.setBounds(100, 10, 40, 30);
 
-        bg.setIcon(new javax.swing.ImageIcon("C:\\Users\\Melvin Mathew\\Documents\\NetBeansProjects\\Zombies\\src\\zombies\\on-a-scary-scary-night-1600x1200.jpg")); // NOI18N
+        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/zombies/on-a-scary-scary-night-1600x1200.jpg"))); // NOI18N
         getContentPane().add(bg);
         bg.setBounds(0, 0, 770, 550);
 
@@ -202,7 +202,7 @@ public class Zombies extends javax.swing.JFrame {
 
     private void formMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseEntered
         java.awt.Toolkit toolkit = java.awt.Toolkit.getDefaultToolkit();
-        Image image = toolkit.getImage("C:\\Users\\Melvin Mathew\\Documents\\NetBeansProjects\\Zombies\\src\\zombies\\aim1.png");
+        Image image = toolkit.getImage(getClass().getResource("aim1.png"));
         Cursor a = toolkit.createCustomCursor(image, new Point(this.getX(), this.getY()), "");
         this.setCursor(a);
         // TODO add your handling code here:
@@ -211,58 +211,76 @@ public class Zombies extends javax.swing.JFrame {
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
         int a = evt.getX();
         int b = evt.getY();
-
-        click1 = true;
-        switch (bullet % 6) {
+        switch (bullet) {
             case 0:
-                spark.setVisible(true);
-                bullets3.setVisible(false);
-                bullet++;
-                d = 0;
-                sound("gunshot");
+                bullets.setVisible(true);
+                bullets1.setVisible(true);
+                bullets2.setVisible(true);
+                bullets3.setVisible(true);
+                bullets4.setVisible(true);
+                spark.setVisible(false);
+                bullet = 5;
+                d = 1;
+                sound("reload");
 
                 break;
             case 1:
                 spark.setVisible(true);
+                bullets.setVisible(false);
+                bullets1.setVisible(false);
                 bullets2.setVisible(false);
-                bullet++;
+                bullets3.setVisible(false);
+                bullets4.setVisible(false);
+                bullet--;
                 d = 0;
                 sound("gunshot");
 
                 break;
             case 2:
+                bullets.setVisible(true);
+                bullets1.setVisible(false);
                 spark.setVisible(true);
+                bullets2.setVisible(false);
+                bullets3.setVisible(false);
                 bullets4.setVisible(false);
-                bullet++;
+                bullet--;
                 d = 0;
                 sound("gunshot");
 
                 break;
             case 3:
+                bullets.setVisible(true);
+                bullets1.setVisible(true);
                 spark.setVisible(true);
-                bullets1.setVisible(false);
-                bullet++;
+                bullets2.setVisible(false);
+                bullets3.setVisible(false);
+                bullets4.setVisible(false);
+                bullet--;
                 d = 0;
                 sound("gunshot");
 
                 break;
             case 4:
+                bullets.setVisible(true);
+                bullets1.setVisible(true);
                 spark.setVisible(true);
-                bullets.setVisible(false);
-                bullet++;
+                bullets2.setVisible(true);
+                bullets3.setVisible(false);
+                bullets4.setVisible(false);
+                bullet--;
                 d = 0;
                 sound("gunshot");
                 break;
             case 5:
                 bullets.setVisible(true);
                 bullets1.setVisible(true);
-                spark.setVisible(false);
+                spark.setVisible(true);
                 bullets2.setVisible(true);
                 bullets3.setVisible(true);
-                bullets4.setVisible(true);
-                bullet++;
-                d = 1;
-                sound("reload");
+                bullets4.setVisible(false);
+                bullet--;
+                d = 0;
+                sound("gunshot");
                 break;
 
             default:
@@ -361,6 +379,7 @@ public class Zombies extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         spark.setVisible(false);
         BGMGlobal = soundBGM();
+        
 
         java.util.Timer t = new java.util.Timer();
         t.schedule(new TimerTask() {
@@ -369,7 +388,7 @@ public class Zombies extends javax.swing.JFrame {
                 switch (b % 5) {
                     case 0:
 
-                        t1.setIcon(new ImageIcon(getClass().getClassLoader().getResource("Zombies/zombie.png")));
+                        t1.setIcon(new ImageIcon(getClass().getClassLoader().getResource("zombie.png")));
                         t2.setIcon(new ImageIcon(""));
                         t5.setIcon(new ImageIcon(""));
                         t3.setIcon(new ImageIcon(""));
@@ -393,7 +412,7 @@ public class Zombies extends javax.swing.JFrame {
                         }
                         break;
                     case 1:
-                        t2.setIcon(new ImageIcon(getClass().getClassLoader().getResource("Zombies/zombie.png")));
+                        t2.setIcon(new ImageIcon(getClass().getClassLoader().getResource("zombie.png")));
                         t4.setIcon(new ImageIcon(""));
                         t3.setIcon(new ImageIcon(""));
                         t1.setIcon(new ImageIcon(""));
@@ -417,7 +436,7 @@ public class Zombies extends javax.swing.JFrame {
                         }
                         break;
                     case 2:
-                        t4.setIcon(new ImageIcon(getClass().getClassLoader().getResource("Zombies/zombie.png")));
+                        t4.setIcon(new ImageIcon(getClass().getClassLoader().getResource("zombie.png")));
                         t1.setIcon(new ImageIcon(""));
                         t2.setIcon(new ImageIcon(""));
                         t5.setIcon(new ImageIcon(""));
@@ -440,7 +459,7 @@ public class Zombies extends javax.swing.JFrame {
                         }
                         break;
                     case 3:
-                        t5.setIcon(new ImageIcon(getClass().getClassLoader().getResource("Zombies/zombie.png")));
+                        t5.setIcon(new ImageIcon(getClass().getClassLoader().getResource("zombie.png")));
                         t1.setIcon(new ImageIcon(""));
                         t2.setIcon(new ImageIcon(""));
                         t3.setIcon(new ImageIcon(""));
@@ -463,7 +482,7 @@ public class Zombies extends javax.swing.JFrame {
                         }
                         break;
                     default:
-                        t3.setIcon(new ImageIcon(getClass().getClassLoader().getResource("Zombies/zombie.png")));
+                        t3.setIcon(new ImageIcon(getClass().getClassLoader().getResource("zombie.png")));
                         t1.setIcon(new ImageIcon(""));
                         t4.setIcon(new ImageIcon(""));
                         t2.setIcon(new ImageIcon(""));
@@ -493,37 +512,96 @@ public class Zombies extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void formMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_formMouseWheelMoved
-        n++;
-        if (n == 1) {
-            g.setIcon(new ImageIcon(getClass().getClassLoader().getResource("Zombies/g4.png")));
-            bullets.setVisible(true);
-            bullets1.setVisible(true);
-            spark.setVisible(false);
-            bullets2.setVisible(true);
-            bullet = 0;
-            bullets3.setVisible(true);
-            bullets4.setVisible(true);
+
+        switch (n) {
+            case 1:
+                b1 = bullet;
+                break;
+            case 2:
+                b2 = bullet;
+                break;
+            case 3:
+                b3 = bullet;
+                break;
+            default:
+                System.out.println("n<=0 || n>=4");
         }
-        if (n == 2) {
-            bullets.setVisible(true);
-            bullets1.setVisible(true);
-            spark.setVisible(false);
-            bullets2.setVisible(true);
-            bullet = 0;
-            bullets3.setVisible(true);
-            bullets4.setVisible(true);
-            g.setIcon(new ImageIcon(getClass().getClassLoader().getResource("Zombies/g3.png")));
+
+        if (evt.getWheelRotation() >= 0) {
+            n++;
+            if (n > 3) {
+                n = 1;
+            }
+        } else {
+            n--;
+            if (n < 1) {
+                n = 3;
+            }
         }
-        if (n == 3) {
-            bullets.setVisible(true);
-            bullets1.setVisible(true);
-            bullet = 0;
-            spark.setVisible(false);
-            bullets2.setVisible(true);
-            bullets3.setVisible(true);
-            bullets4.setVisible(true);
-            g.setIcon(new ImageIcon(getClass().getClassLoader().getResource("Zombies/gun.png")));
-            n = 0;
+
+        switch (n) {
+            case 1:
+                g.setIcon(new ImageIcon(getClass().getClassLoader().getResource("g4.png")));
+                spark.setVisible(false);
+                bullet = b1;
+                break;
+            case 2:
+                spark.setVisible(false);
+                bullet = b2;
+                g.setIcon(new ImageIcon(getClass().getClassLoader().getResource("g3.png")));
+                break;
+            case 3:
+                bullet = b3;
+                spark.setVisible(false);
+                g.setIcon(new ImageIcon(getClass().getClassLoader().getResource("gun.png")));
+                break;
+            default:
+                break;
+        }
+
+        switch (bullet) {
+            case 0:
+                bullets.setVisible(false);
+                bullets1.setVisible(false);
+                bullets2.setVisible(false);
+                bullets3.setVisible(false);
+                bullets4.setVisible(false);
+                break;
+            case 1:
+                bullets.setVisible(true);
+                bullets1.setVisible(false);
+                bullets2.setVisible(false);
+                bullets3.setVisible(false);
+                bullets4.setVisible(false);
+                break;
+            case 2:
+                bullets.setVisible(true);
+                bullets1.setVisible(true);
+                bullets2.setVisible(false);
+                bullets3.setVisible(false);
+                bullets4.setVisible(false);
+                break;
+            case 3:
+                bullets.setVisible(true);
+                bullets1.setVisible(true);
+                bullets2.setVisible(true);
+                bullets3.setVisible(false);
+                bullets4.setVisible(false);
+                break;
+            case 4:
+                bullets.setVisible(true);
+                bullets1.setVisible(true);
+                bullets2.setVisible(true);
+                bullets3.setVisible(true);
+                bullets4.setVisible(false);
+                break;
+            case 5:
+                bullets.setVisible(true);
+                bullets1.setVisible(true);
+                bullets2.setVisible(true);
+                bullets3.setVisible(true);
+                bullets4.setVisible(true);
+                break;
         }
 
     }//GEN-LAST:event_formMouseWheelMoved
@@ -532,25 +610,24 @@ public class Zombies extends javax.swing.JFrame {
         // TODO add your handling code here:
         stopBGM(BGMGlobal);
     }//GEN-LAST:event_formWindowLostFocus
-    
-    public AudioStream soundBGM(){
+
+    public AudioStream soundBGM() {
         AudioStream BGM = null;
         try {
-            InputStream music = new FileInputStream("./bg.wav");
+            InputStream music = getClass().getResourceAsStream("/bg.wav");
             BGM = new AudioStream(music);
             AudioPlayer.player.start(BGM);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getLocalizedMessage());
-        }finally{
+        } finally {
             return BGM;
-        } 
+        }
     }
-    
+
     public void sound(String nm) {
         AudioStream BGM;
-
         try {
-            InputStream music = new FileInputStream("./" + nm + ".wav");
+            InputStream music = getClass().getResourceAsStream("/" + nm + ".wav");
             BGM = new AudioStream(music);
             AudioPlayer.player.start(BGM);
         } catch (Exception e) {
@@ -621,6 +698,6 @@ public class Zombies extends javax.swing.JFrame {
     }
 
     private void stopBGM(AudioStream BGMGlobal) {
-            AudioPlayer.player.stop(BGMGlobal);
+        AudioPlayer.player.stop(BGMGlobal);
     }
 }
