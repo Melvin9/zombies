@@ -6,6 +6,7 @@
 package zombies;
 
 import java.awt.Cursor;
+import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.Toolkit;
@@ -24,9 +25,10 @@ import sun.audio.AudioStream;
 public class Zombies extends javax.swing.JFrame {
 
     int b = 1, sc = 1, c = 0, bullet = 5, d = 0, l = 10, n = 3, temp, b1 = 5, b2 = 5, b3 = 5;
-    boolean click = false;
+    boolean click = false, killed = false;
     boolean click1 = false;
     AudioStream BGMGlobal;
+    java.util.Timer sparkTimer = null;
 
     /**
      * Creates new form NewJFrame9
@@ -289,27 +291,29 @@ public class Zombies extends javax.swing.JFrame {
         if (d != 1) {
             switch (c) {
                 case 1:
-                    if (a >= 75 && a <= 95 && b >= 260 && b <= 285) {
+                    if (a >= 75 && a <= 95 && b >= 260 && b <= 285 && !killed) {
                         score2.setText(sc++ + "");
                         t2.setVisible(true);
                         t3.setVisible(true);
                         t4.setVisible(true);
                         t5.setVisible(true);
+                        killed = true;
                         click = true;
-                        t1.setVisible(false);
+                        t1.setIcon(new ImageIcon(getClass().getClassLoader().getResource("zombiekill.png")));
                     } else {
                         click = false;
 
                     }
                     break;
                 case 2:
-                    if (a >= 390 && a <= 420 && b >= 260 && b <= 285) {
+                    if (a >= 390 && a <= 420 && b >= 260 && b <= 285 && !killed) {
                         t5.setVisible(true);
                         t3.setVisible(true);
                         t4.setVisible(true);
                         click = true;
+                        killed = true;
                         t1.setVisible(true);
-                        t2.setVisible(false);
+                        t2.setIcon(new ImageIcon(getClass().getClassLoader().getResource("zombiekill.png")));
                         score2.setText(sc++ + "");
                     } else {
                         click = false;
@@ -317,11 +321,12 @@ public class Zombies extends javax.swing.JFrame {
                     }
                     break;
                 case 4:
-                    if (a >= 230 && a <= 260 && b >= 260 && b <= 285) {
-                        t5.setVisible(false);
+                    if (a >= 230 && a <= 260 && b >= 260 && b <= 285 && !killed) {
+                        t5.setIcon(new ImageIcon(getClass().getClassLoader().getResource("zombiekill.png")));
                         t3.setVisible(true);
                         t4.setVisible(true);
                         t1.setVisible(true);
+                        killed = true;
                         click = true;
                         t2.setVisible(true);
                         score2.setText(sc++ + "");
@@ -331,12 +336,13 @@ public class Zombies extends javax.swing.JFrame {
                     }
                     break;
                 case 5:
-                    if (a >= 540 && a <= 570 && b >= 260 && b <= 285) {
+                    if (a >= 540 && a <= 570 && b >= 260 && b <= 285 && !killed) {
                         t5.setVisible(true);
                         t2.setVisible(true);
                         t4.setVisible(true);
                         t1.setVisible(true);
-                        t3.setVisible(false);
+                        killed = true;
+                        t3.setIcon(new ImageIcon(getClass().getClassLoader().getResource("zombiekill.png")));
                         click = true;
                         score2.setText(sc++ + "");
                     } else {
@@ -345,13 +351,14 @@ public class Zombies extends javax.swing.JFrame {
                     }
                     break;
                 case 3:
-                    if (a >= 700 && a <= 730 && b >= 260 && b <= 285) {
+                    if (a >= 700 && a <= 730 && b >= 260 && b <= 285 && !killed) {
                         t5.setVisible(true);
                         t3.setVisible(true);
-                        t4.setVisible(false);
+                        t4.setIcon(new ImageIcon(getClass().getClassLoader().getResource("zombiekill.png")));
                         t1.setVisible(true);
                         click = true;
                         t2.setVisible(true);
+                        killed = true;
                         score2.setText(sc++ + "");
                     } else {
 
@@ -372,19 +379,35 @@ public class Zombies extends javax.swing.JFrame {
     }//GEN-LAST:event_formMouseClicked
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+      
+        if(sparkTimer!=null){
+            sparkTimer.cancel();
+        }
+        if(spark.isVisible()){
+          sparkTimer = new java.util.Timer();
+        sparkTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+               
+                    spark.setVisible(false);
+                    
 
+            }
+        }, 200,200);
+        
+      }
 
     }//GEN-LAST:event_formWindowActivated
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         spark.setVisible(false);
         BGMGlobal = soundBGM();
-        
 
         java.util.Timer t = new java.util.Timer();
         t.schedule(new TimerTask() {
             @Override
             public void run() {
+                killed = false;
                 switch (b % 5) {
                     case 0:
 
@@ -398,15 +421,14 @@ public class Zombies extends javax.swing.JFrame {
                         while (b == temp) {
                             b = randomNumberbetweenOneAndFive();
                         }
-                        if (click == false || click1 == false) {
+                        if (click == false) {
                             life.setText(l-- + "");
                             if (l < 0) {
 
                                 Gameover score1 = new Gameover();
-                                int a = Integer.parseInt(score2.getText());
-                                Gameover.score.setText(a + "");
+                                Gameover.score.setText(sc - 1 + "");
                                 score1.setVisible(true);
-                                this.cancel();
+                                this.cancel();Zombies.this.dispose();
                             }
 
                         }
@@ -422,15 +444,15 @@ public class Zombies extends javax.swing.JFrame {
                         while (b == temp) {
                             b = randomNumberbetweenOneAndFive();
                         }
-                        if (click == false || click1 == false) {
+                        if (click == false) {
                             life.setText(l-- + "");
                             if (l < 0) {
 
                                 Gameover score1 = new Gameover();
-                                int a = Integer.parseInt(score2.getText());
-                                Gameover.score.setText(a + "");
+                                Gameover.score.setText(sc - 1 + "");
                                 score1.setVisible(true);
                                 this.cancel();
+                                Zombies.this.dispose();
                             }
 
                         }
@@ -446,15 +468,14 @@ public class Zombies extends javax.swing.JFrame {
                         while (b == temp) {
                             b = randomNumberbetweenOneAndFive();
                         }
-                        if (click == false || click1 == false) {
+                        if (click == false) {
                             life.setText(l-- + "");
                             if (l < 0) {
 
                                 Gameover score1 = new Gameover();
-                                int a = Integer.parseInt(score2.getText());
-                                Gameover.score.setText(a + "");
+                                Gameover.score.setText(sc - 1 + "");
                                 score1.setVisible(true);
-                                this.cancel();
+                                this.cancel();Zombies.this.dispose();
                             }
                         }
                         break;
@@ -469,15 +490,14 @@ public class Zombies extends javax.swing.JFrame {
                         while (b == temp) {
                             b = randomNumberbetweenOneAndFive();
                         }
-                        if (click == false || click1 == false) {
+                        if (click == false) {
                             life.setText(l-- + "");
                             if (l < 0) {
 
                                 Gameover score1 = new Gameover();
-                                int a = Integer.parseInt(score2.getText());
-                                Gameover.score.setText(a + "");
+                                Gameover.score.setText(sc - 1 + "");
                                 score1.setVisible(true);
-                                this.cancel();
+                                this.cancel();Zombies.this.dispose();
                             }
                         }
                         break;
@@ -492,15 +512,14 @@ public class Zombies extends javax.swing.JFrame {
                         while (b == temp) {
                             b = randomNumberbetweenOneAndFive();
                         }
-                        if (click == false || click1 == false) {
+                        if (click == false) {
                             life.setText(l-- + "");
                             if (l < 0) {
 
                                 Gameover score1 = new Gameover();
-                                int a = Integer.parseInt(score2.getText());
-                                Gameover.score.setText(a + "");
+                                Gameover.score.setText(sc - 1 + "");
                                 score1.setVisible(true);
-                                this.cancel();
+                                this.cancel();Zombies.this.dispose();
                             }
                         }
                         break;
@@ -508,7 +527,7 @@ public class Zombies extends javax.swing.JFrame {
                 click = false;
 
             }
-        }, 1000, 1000);
+        }, 1500, 1500);
     }//GEN-LAST:event_formWindowOpened
 
     private void formMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_formMouseWheelMoved

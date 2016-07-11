@@ -34,8 +34,7 @@ public class Gameover extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(780, 580));
-        setPreferredSize(new java.awt.Dimension(774, 579));
+        setMinimumSize(new java.awt.Dimension(770, 575));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
@@ -70,7 +69,7 @@ public class Gameover extends javax.swing.JFrame {
         getContentPane().add(jButton1);
         jButton1.setBounds(350, 230, 80, 30);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Melvin Mathew\\Documents\\NetBeansProjects\\Zombies\\src\\zombies\\on-a-scary-scary-night-1600x1200.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/zombies/on-a-scary-scary-night-1600x1200.jpg"))); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 770, 550);
 
